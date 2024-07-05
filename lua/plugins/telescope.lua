@@ -66,20 +66,27 @@ return {
 					require("telescope.themes").get_dropdown(),
 				},
 				["file_browser"] = {
-					require("telescope.themes").get_ivy(),
+					require("telescope.themes").get_dropdown(),
+					path = "%:p:h",
+					grouped = true,
+					depth = 2,
+					cwd_to_path = true,
 					hidden = {
 						file_browser = true,
 						folder_browser = true,
 					},
 					hijack_netrw = true,
 					layout_config = {
-						prompt_position = "top",
+						horizontal = {
+							prompt_position = "bottom",
+							height = 0.95,
+							width = 0.95,
+						},
 					},
-					previewer = false,
+					previewer = true,
 				},
 			},
 		})
-
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "file_browser")
 		pcall(require("telescope").load_extension, "fzf")
@@ -112,21 +119,26 @@ return {
 			})
 		end, { desc = "[S]earch [/] in Open Files" })
 
-		vim.keymap.set(
-			"n",
-			"<leader>fb",
-			":Telescope file_browser path=%:p:h select_buffer=true<CR>",
-			{ desc = "Open Browser Current Buffer", silent = true }
-		)
-
 		-- Shortcut for searching your Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
-
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
+		-- Serach in help docs
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
+		-- Search keymaps
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
+		-- Search Telescope builtin
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
+
+		vim.keymap.set(
+			"n",
+			"<leader>fb",
+			-- ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+			function()
+				require("telescope").extensions.file_browser.file_browser()
+			end,
+			{ desc = "Open Browser Current Buffer", silent = true }
+		)
 	end,
 }
