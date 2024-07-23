@@ -1,14 +1,14 @@
 return {
 	"echasnovski/mini.nvim",
+	event = "VeryLazy",
 	version = false,
 	config = function()
-		local mini_surround = require("mini.surround")
-		mini_surround.setup({})
+		require("mini.surround").setup()
 
-		local mini_move = require("mini.move")
-		mini_move.setup({})
+		require("mini.move").setup()
 
-		local mini_notify = require("mini.notify")
-		mini_notify.setup({})
+		require("mini.ai").setup()
+
+		require("mini.pairs").setup()
 	end,
 }

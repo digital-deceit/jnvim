@@ -30,6 +30,7 @@ local config = {
 		"java.base/java.util=ALL-UNNAMED",
 		"--add-opens",
 		"java.base/java.lang=ALL-UNNAMED",
+		"-javaagent:" .. vim.env.HOME .. "/.local/share/nvim/mason/packages/jdtls/lombok.jar",
 		"-jar",
 		vim.env.HOME .. "/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher.jar",
 		"-configuration",
