@@ -5,10 +5,7 @@ map({ "n", "v" }, " ", "<Nop>", { silent = true })
 -- Removes highlight when sarch for pattern
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-map("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open Floating Diagnostic Message" })
-map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open Diagnostics List" })
+map("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 -- Delete buffer
 map("n", "<a-d>", "<cmd>bd<cr>", { noremap = true, desc = "Delete buffer" })
 -- Close current window

@@ -6,13 +6,17 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"MunifTanjim/nui.nvim",
 	},
+	cmd = "Neotree",
 	keys = {
-		{ "<leader>nt", "<cmd>Neotree toggle<cr>", desc = "Toggle NeoTree" },
+		{ "\\", "<CMD>Neotree toggle<CR>", desc = "NeoTree Toggle" },
 	},
 	opts = {
 		window = {
 			position = "right",
 			width = 35,
+			mappings = {
+				["\\"] = "close_window",
+			},
 		},
 		filesystem = {
 			hide_dotfiles = false,
