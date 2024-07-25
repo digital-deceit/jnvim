@@ -3,7 +3,4 @@ return {
 	event = "VeryLazy",
 	main = "ibl",
 	opts = {},
-	config = function()
-		require("ibl").setup()
-	end,
 }

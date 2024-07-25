@@ -41,7 +41,7 @@ local config = {
 	root_dir = require("jdtls.setup").find_root({ ".git", "mvnw", "pom.xml", "build.gradle" }),
 	settings = {
 		java = {
-			home = vim.env.HOME .. ".local/jdk-21.0.3+9",
+			home = vim.env.HOME .. ".local/jdk-21",
 			eclipse = {
 				downloadSources = true,
 			},
@@ -52,11 +52,11 @@ local config = {
 				runtimes = {
 					{
 						name = "JavaSE-21",
-						path = vim.env.HOME .. "/.local/jdk-21.0.3+9",
+						path = vim.env.HOME .. "/.local/jdk-21",
 					},
 					{
 						name = "JavaSE-17",
-						path = vim.env.HOME .. "/.local/jdk-17.0.11+9",
+						path = vim.env.HOME .. "/.local/jdk-17",
 					},
 				},
 			},
